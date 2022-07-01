@@ -5,13 +5,30 @@ color2 = ColorFusion('赤')
 color3 = ColorFusion('緑')
 colors = [color1, color2, color3]
 
-def validate(color_order1, color_order2):
-    if (color_order1 or color_order2) < 0 or (color_order1 or color_order2) > 2:
-        return True
-    else:
+def validate(c1, c2):
+    if c1 < 0 or c1 > 2:
         return False
+    elif  c2 < 0 or c1 > 2:
+        return False
+    else:
+        return True
+        
+def judge(color_order1, color_order2):
+    if color_order1 == 0 and color_order2 == 1:
+        return '紫'
+    elif color_order1 == 0 and color_order2 ==2:
+        return '青緑'
+    elif color_order1 == 1 and color_order2 ==0:
+        return '紫'
+    elif color_order1 == 1 and color_order2 ==2:
+        return '黄'
+    elif color_order1 == 2 and color_order2 ==0:
+        return '青緑'
+    elif color_order1 == 2 and color_order2 ==1:
+        return '黄'
+    else:
+        return '濃' + selected_color1.name
     
-
 
 print('色混ぜてみよう')
 print('色一覧')
@@ -25,22 +42,10 @@ color_order2 = int(input('：')) - 1
 
 selected_color1 = colors[color_order1]
 selected_color2 = colors[color_order2]
-
+    
 if validate(color_order1, color_order2):
-    if selected_color1 == color1 and selected_color2 == color2:
-        print("紫")
-    elif selected_color1 == color1 and selected_color2 == color3:
-        print('青緑')
-    elif selected_color1 == color2 and selected_color2 == color1:
-        print('紫')
-    elif selected_color1 == color2 and selected_color2 == color3:
-        print('黄')
-    elif selected_color1 == color3 and selected_color2 == color1:
-        print('青緑')
-    elif selected_color1 == color3 and selected_color2 == color2:
-        print('青緑')
-    else:
-        print('濃' + selected_color1.name)
+    result = judge(color_order1, color_order2)
+    print('結果は' + result + 'でした')
 else:
-    print('正しい数字を入力してください')
+    print('正しい数値を入力してください')
     
