@@ -13,18 +13,12 @@ def validate(c1, c2):
     else:
         return True
         
-def judge(color_order1, color_order2):
-    if color_order1 == 0 and color_order2 == 1:
+def judge(c1, c2):
+    if (c1 == 0 and c2 == 1) or (c1 == 1 and c2 ==0):
         return '紫'
-    elif color_order1 == 0 and color_order2 ==2:
+    elif (c1 == 0 and c2 ==2) or (c1 == 2 and c2 ==0):
         return '青緑'
-    elif color_order1 == 1 and color_order2 ==0:
-        return '紫'
-    elif color_order1 == 1 and color_order2 ==2:
-        return '黄'
-    elif color_order1 == 2 and color_order2 ==0:
-        return '青緑'
-    elif color_order1 == 2 and color_order2 ==1:
+    elif (c1 == 1 and c2 ==2) or (c1 == 2 and c2 ==1):
         return '黄'
     else:
         return '濃' + selected_color1.name
